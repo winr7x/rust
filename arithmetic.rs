@@ -15,6 +15,7 @@ fn main() {
   assert_eq!(0x10 >> 2, 4);
   
   assert_eq!(!0b1u8, 0b11111110u8);
+  assert_eq!(!254u8, 1); // not 0 as in C++
   
   assert_eq!(0b1010 | 0b0100, 0b1110);
   assert_eq!(0b1011 & 0b0101, 0b0001);
