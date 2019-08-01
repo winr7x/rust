@@ -23,4 +23,12 @@ fn main() {
   assert_eq!(byte_i, 105);
   assert_eq!(byte_x, 120);
   println!("'{}', '{}'", byte_i, byte_x); // '105', '120'
+  
+  let hex_v = 0xC;
+  let oct_v = 0o11;
+  let bin_v = 0b10;
+  assert_eq!(hex_v, 12);
+  assert_eq!(oct_v, 9);
+  assert_eq!(bin_v, 2);
+  println!("{}, {}, {}", hex_v, oct_v, bin_v); // 12, 9, 2
 }
