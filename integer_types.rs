@@ -17,4 +17,9 @@ fn main() {
   let _v11: u128 = 340_282_366_920_938_463_463_374_607_431_768_211_455;
   // u32 or u64 (18_446_744_073_709_551_615)
   let _v12: usize = 4_294_967_295;
+  
+  let _byte_i: u8 = b'i';
+  let _byte_x = b'x';
+  assert_eq!(_byte_i, 105); // ASCII code 105
+  assert_eq!(_byte_x, 120); // ASCII code 120
 }
