@@ -23,4 +23,11 @@ fn main() {
   
   assert_eq!((-67i16).abs(), 67);
   assert_eq!((0x1Fi32).count_ones(), 5); // 0b11111
+  
+  let x: u16 = 767;
+  let y1: u32 = x.into(); // mismatched types error without '.into()'
+                          // .into() - expansion without loss of accuracy
+  let y2: u8 = x as u8;
+  assert_eq!(767, y1);
+  assert_eq!(255, y2);
 }
