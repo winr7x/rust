@@ -30,4 +30,10 @@ fn main() {
   let y2: u8 = x as u8;
   assert_eq!(767, y1);
   assert_eq!(255, y2);
+  
+  let _v1: u8 = 0;
+  // let _v2 = _v1 - 1; // in debug mode will cause error:
+                        // thread 'main' panicked at 'attempt to subtract with overflow'
+  let _v3 = i32::max_value(); // in debug mode will cause error:
+  // let _v4 = _v3 + 1;       // thread 'main' panicked at 'attempt to add with overflow'
 }
