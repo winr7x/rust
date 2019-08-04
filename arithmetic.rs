@@ -36,4 +36,29 @@ fn main() {
                         // thread 'main' panicked at 'attempt to subtract with overflow'
   let _v3 = i32::max_value(); // in debug mode will cause error:
   // let _v4 = _v3 + 1;       // thread 'main' panicked at 'attempt to add with overflow'
+  
+  let v4 = i32::max_value();
+  let v5: u8 = 0;
+  let v6 = v4.wrapping_add(1); // normal overflow behavior
+  let v7 = v5.wrapping_sub(1); // normal overflow behavior
+  assert_eq!(v6, i32::min_value());
+  assert_eq!(v7, 255);
+  
+  let v8 = v4.saturating_add(1); // do not change value if overflow
+  let v9 = v5.saturating_sub(1); // do not change value if overflow
+  assert_eq!(v8, i32::max_value());
+  assert_eq!(v9, 0);
+
+  // normal overflow behavior with bool result: overflowed or not
+  let (v10, overflowed) = v4.overflowing_add(1);
+  assert!(overflowed);
+  assert_eq!(v10, i32::min_value());
+  let (v11, overflowed) = v5.overflowing_sub(1);
+  assert!(overflowed);
+  assert_eq!(v11, 255);
+  
+  //match 23u8.checked_add(1) {
+      //Some(_y) => unreachable!(),
+      //None => println!("overflowed"),
+  //}
 }
