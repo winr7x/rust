@@ -57,8 +57,8 @@ fn main() {
   assert!(overflowed);
   assert_eq!(v11, 255);
   
-  //match 23u8.checked_add(1) {
-      //Some(_y) => unreachable!(),
-      //None => println!("overflowed"),
-  //}
+  match 255u8.checked_add(1) {
+      Some(result) => println!("not overflowed and result is {}", result),
+      None => println!("overflowed"),
+  }
 }
